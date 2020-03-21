@@ -1,4 +1,4 @@
-Is Specification:
+Is Output:
   - Is Service Name String Input
   - Is Exposed Boolean Input
   - Is In Process Service Boolean Input

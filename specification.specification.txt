@@ -1,0 +1,3 @@
+Is Specification:
+  - specification.input / Not Input
+  - specification.output / Is Output
