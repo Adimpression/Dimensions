@@ -1,0 +1,3 @@
+Is Osv:
+  - dot.osv.input / Not Input
+  - dot.osv.output / Is Output

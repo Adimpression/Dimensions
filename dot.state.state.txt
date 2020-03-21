@@ -1,0 +1,2 @@
+Is State:
+  - Is Value String

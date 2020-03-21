@@ -1,0 +1,2 @@
+Is Output:
+  - dot.dependency.ded.ded / Is Ded

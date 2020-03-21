@@ -1,0 +1,5 @@
+Is Input:
+  - dot.dependency.ded.ded / Is Ded
+  - dot.dependency.did.did / Is Did
+  - dot.dependency.dred.dred / Is Dred
+  - dot.dependency.dbored.dbored / Is Dbored

@@ -1,0 +1,3 @@
+Is Input:
+  - Is Descriptor Bytes
+  - Is Message Bytes

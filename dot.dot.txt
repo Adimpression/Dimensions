@@ -1,0 +1,3 @@
+Is Dot:
+  - dot.input / Not Input
+  - dot.output / Is Output
