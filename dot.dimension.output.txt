@@ -1,0 +1,3 @@
+Is Output:
+  - dot.state.state / Is State
+  - [ dot.dependency.dependency / Is Dependency ]

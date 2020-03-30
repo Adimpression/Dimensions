@@ -1,0 +1,3 @@
+Is Input:
+  - offer.offer / Is Offer | skip.skip / Is Skip
+  - //What goes into forming a dimension? e.g. Writing it down. Auto generating. Hence we will have a one_of here

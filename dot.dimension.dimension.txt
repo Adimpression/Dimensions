@@ -1,0 +1,3 @@
+Is Dimension:
+  - dot.dimension.input / Not Input
+  - dot.dimension.output / Is Output

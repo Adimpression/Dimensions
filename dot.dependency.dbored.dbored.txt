@@ -1,3 +1,2 @@
 Is Dbored:
-  - dot.dependency.dbored.input / Not Input
   - dot.dependency.dbored.output / Is Output

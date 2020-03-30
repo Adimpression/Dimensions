@@ -1,3 +1,2 @@
 Is Dred:
-  - dot.dependency.dred.input / Not Input
   - dot.dependency.dred.output / Is Output

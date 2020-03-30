@@ -1,3 +1,2 @@
 Is Did:
-  - dot.dependency.did.input / Not Input
   - dot.dependency.did.output / Is Output

@@ -1,3 +1,2 @@
 Is Ded:
-  - dot.dependency.ded.input / Not Input
   - dot.dependency.ded.output / Is Output
