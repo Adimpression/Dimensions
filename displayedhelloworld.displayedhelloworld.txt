@@ -1,0 +1,3 @@
+Is Displayed Hello World:
+  - displayedhelloworld.input / Not Input
+  - displayedhelloworld.output / Is Output
