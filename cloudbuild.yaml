@@ -1,4 +1,31 @@
 steps:
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args:
+      - kms
+      - decrypt
+      - --ciphertext-file=id_rsa.enc
+      - --plaintext-file=/root/.ssh/id_rsa
+      - --location=global
+      - --keyring=private-keys
+      - --key=github-key
+    volumes:
+      - name: 'ssh'
+        path: /root/.ssh
+
+  - name: 'gcr.io/cloud-builders/git'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        chmod 600 /root/.ssh/id_rsa
+        cat <<EOF >/root/.ssh/config
+        Hostname github.com
+        IdentityFile /root/.ssh/id_rsa
+        EOF
+        mv known_hosts /root/.ssh/known_hosts
+    volumes:
+      - name: 'ssh'
+        path: /root/.ssh
   - name: gcr.io/cloud-builders/git
     args: ['clone', 'https://github.com/Adimpression/Dimensions.git']
     id: 'repo-Dimensions'
@@ -8,6 +35,9 @@ steps:
   - name: gcr.io/cloud-builders/git
     args: ['clone', 'git@github.com:Adimpression/proto.git']
     id: 'repo-proto'
+    volumes:
+      - name: 'ssh'
+        path: /root/.ssh
   - name: maven:3.6.0-jdk-11-slim
     entrypoint: 'mvn'
     args: ['-Darguments', '-Dmaven.javadoc.skip=true', '-DskipTests=true','-f','Scarcity/pom.xml', 'clean', 'install']
