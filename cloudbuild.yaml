@@ -11,6 +11,7 @@ steps:
     volumes:
       - name: 'ssh'
         path: /root/.ssh
+    id: 'id_rsa'
 
   - name: 'gcr.io/cloud-builders/git'
     entrypoint: 'bash'
@@ -26,6 +27,7 @@ steps:
     volumes:
       - name: 'ssh'
         path: /root/.ssh
+    id: 'known_hosts'
   - name: gcr.io/cloud-builders/git
     args: ['clone', 'https://github.com/Adimpression/Dimensions.git']
     id: 'repo-Dimensions'
@@ -34,10 +36,13 @@ steps:
     id: 'repo-Scarcity'
   - name: gcr.io/cloud-builders/git
     args: ['clone', 'git@github.com:Adimpression/proto.git']
-    id: 'repo-proto'
     volumes:
       - name: 'ssh'
         path: /root/.ssh
+    waitFor:
+      - 'id_rsa'
+      - 'known_hosts'
+    id: 'repo-proto'
   - name: maven:3.6.0-jdk-11-slim
     entrypoint: 'mvn'
     args: ['-Darguments', '-Dmaven.javadoc.skip=true', '-DskipTests=true','-f','Scarcity/pom.xml', 'clean', 'install']
