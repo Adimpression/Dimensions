@@ -1,18 +1,14 @@
 steps:
   - name: gcr.io/cloud-builders/git
-    args: ['clone', 'https://github.com/Adimpression/Scarcity.git', 'master']
-#    dir: '/root/repo/'
-#    volumes:
-#      - name: 'repo'
-#        path: '/root/repo/'
+    args: ['clone', 'https://github.com/Adimpression/Dimensions.git']
+    id: 'repo-Dimensions'
+  - name: gcr.io/cloud-builders/git
+    args: ['clone', 'https://github.com/Adimpression/Scarcity.git']
     id: 'repo-Scarcity'
   - name: maven:3.6.0-jdk-11-slim
     entrypoint: 'mvn'
-    args: ['-Darguments', '-Dmaven.javadoc.skip=true', '-DskipTests=true','-f','master/pom.xml', 'clean', 'install']
-#    dir: '/root/repo/'
-#    volumes:
-#      - name: 'repo'
-#        path: '/root/repo/'
+    args: ['-Darguments', '-Dmaven.javadoc.skip=true', '-DskipTests=true','-f','Scarcity/pom.xml', 'clean', 'install']
     waitFor:
       - 'repo-Scarcity'
+      - 'repo-Dimensions'
     id: 'mvn'
