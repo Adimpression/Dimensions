@@ -8,6 +8,9 @@ steps:
   - name: maven:3.6.0-jdk-11-slim
     entrypoint: 'mvn'
     args: ['-Darguments', '-Dmaven.javadoc.skip=true', '-DskipTests=true','-f','/root/repo/Scarcity/pom.xml', 'clean', 'install']
+    volumes:
+      - name: 'repo'
+        path: '/root/repo/'
     waitFor:
       - 'repo-Scarcity'
     id: 'mvn'
