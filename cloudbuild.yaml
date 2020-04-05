@@ -63,7 +63,7 @@ steps:
     args:
       - '-c'
       - |
-        cp -r ./Scarcity/generator/target/generated-sources/protobuf/java/ ./proto/
+        cp -r ./Scarcity/generator/src/main/proto/ ./proto/
     volumes:
       - name: 'ssh'
         path: /root/.ssh
@@ -77,6 +77,8 @@ steps:
       - |
         set -x && \
         cd proto && \
+        git config --global user.email "talktome@adimpression.mobi" && \
+        git config --global user.name "Adimpression" && \
         git add * && \
         git commit -m "Generated proto from commit ${COMMIT_SHA}" && \
         git push origin master
