@@ -1,6 +1,7 @@
 steps:
   - name: gcr.io/cloud-builders/git
     args: ['clone', 'https://github.com/Adimpression/Scarcity.git', 'master']
+    dir: '/root/repo/'
     volumes:
       - name: 'repo'
         path: '/root/repo/'
