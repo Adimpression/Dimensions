@@ -1,3 +1,7 @@
+# References:
+# https://github.com/GoogleCloudPlatform/gke-gitops-tutorial-cloudbuild/blob/master/cloudbuild-trigger-cd.yaml
+# https://github.com/PimDeWitte/UnityAutoIncrementBuildVersion/issues/1
+
 steps:
   - name: 'gcr.io/cloud-builders/gcloud'
     args:
@@ -73,7 +77,7 @@ steps:
       - |
         set -x && \
         cd proto && \
-        git * && \
+        git add * && \
         git commit -m "Generated proto from commit ${COMMIT_SHA}" && \
         git push origin master
     volumes:
