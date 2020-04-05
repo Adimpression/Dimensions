@@ -12,3 +12,7 @@ steps:
       - 'repo-Scarcity'
       - 'repo-Dimensions'
     id: 'mvn'
+  - name: gcr.io/cloud-builders/gsutil
+    args: ["-m", "rsync", "-r", "-c", "-d", "./Scarcity/generator/src/main/proto", "gs://dimensions.x.qs.fyi/"]
+    waitFor:
+      - 'mvn'
