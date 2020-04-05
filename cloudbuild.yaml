@@ -8,7 +8,7 @@ steps:
     id: 'repo-Scarcity'
   - name: maven:3.6.0-jdk-11-slim
     entrypoint: 'mvn'
-    args: ['-Darguments', '-Dmaven.javadoc.skip=true', '-DskipTests=true','-f','./Scarcity/pom.xml', 'clean', 'install']
+    args: ['-Darguments', '-Dmaven.javadoc.skip=true', '-DskipTests=true','-f','Scarcity/pom.xml', 'clean', 'install']
 #    dir: '/root/repo/'
 #    volumes:
 #      - name: 'repo'
