@@ -12,7 +12,6 @@ steps:
       - name: 'ssh'
         path: /root/.ssh
     id: 'id_rsa'
-
   - name: 'gcr.io/cloud-builders/git'
     entrypoint: 'bash'
     args:
@@ -55,3 +54,31 @@ steps:
     args: ["-m", "rsync", "-r", "-c", "-d", "./Scarcity/generator/src/main/proto", "gs://dimensions.x.qs.fyi/"]
     waitFor:
       - 'mvn'
+  - name: 'gcr.io/cloud-builders/git'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        cp -r ./Scarcity/generator/target/generated-sources/protobuf/java/ ./proto/
+    volumes:
+      - name: 'ssh'
+        path: /root/.ssh
+    waitFor:
+      - 'mvn'
+    id: 'cp-proto'
+  - name: 'gcr.io/cloud-builders/git'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        set -x && \
+        cd proto && \
+        git * && \
+        git commit -m "Generated proto from commit ${COMMIT_SHA}" && \
+        git push origin master
+    volumes:
+      - name: 'ssh'
+        path: /root/.ssh
+    waitFor:
+      - 'cp-proto'
+    id: 'commit-proto'
