@@ -60,10 +60,6 @@ steps:
       - 'repo-Dimensions'
       - 'repo-proto'
     id: 'mvn'
-  - name: gcr.io/cloud-builders/gsutil
-    args: ["-m", "rsync", "-r", "-c", "-d", "./Scarcity/generator/src/main/proto", "gs://dimensions.x.qs.fyi/"]
-    waitFor:
-      - 'mvn'
   - name: 'gcr.io/cloud-builders/git'
     entrypoint: 'bash'
     args:
