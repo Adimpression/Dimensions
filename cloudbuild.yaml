@@ -33,6 +33,12 @@ steps:
     id: 'known_hosts'
   - name: gcr.io/cloud-builders/git
     args: ['clone', '--recurse-submodules', 'https://github.com/Adimpression/Dimensions.git']
+    volumes:
+      - name: 'ssh'
+        path: /root/.ssh
+    waitFor:
+      - 'id_rsa'
+      - 'known_hosts'
     id: 'repo-Dimensions'
   - name: gcr.io/cloud-builders/git
     args: ['clone', 'https://github.com/Adimpression/Scarcity.git']
