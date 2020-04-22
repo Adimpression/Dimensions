@@ -89,12 +89,12 @@ steps:
     args:
       - '-c'
       - |
-        cd ./proto
-        git config --global user.email "talktome@adimpression.mobi"
-        git config --global user.name "Adimpression"
-        ls -la ./proto/
-        ls -la ./proto/proto/
-        git add -A && git commit -m "Generated proto from commit ${COMMIT_SHA}"
+        cd ./proto && \
+        git config --global user.email "talktome@adimpression.mobi" && \
+        git config --global user.name "Adimpression" && \
+        ls -la ./proto/ && \
+        ls -la ./proto/proto/ && \
+        git add -A && git commit -m "Generated proto from commit ${COMMIT_SHA}" && \
         git push origin master
     volumes:
       - name: 'ssh'
