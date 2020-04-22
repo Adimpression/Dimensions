@@ -1,0 +1,3 @@
+[submodule "architecture"]
+	path = DbConnector
+	url = https://github.com/Adimpression/architecture.git
