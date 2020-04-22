@@ -76,7 +76,8 @@ steps:
     args:
       - '-c'
       - |
-        cp -R ./Scarcity/generator/src/main/proto/ ./proto/
+        rm -rf ./proto/proto/ && \
+        cp -Rv ./Scarcity/generator/src/main/proto/ ./proto/
     volumes:
       - name: 'ssh'
         path: /root/.ssh
