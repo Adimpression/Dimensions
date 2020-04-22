@@ -93,10 +93,7 @@ steps:
         cd proto && \
         git config --global user.email "talktome@adimpression.mobi" && \
         git config --global user.name "Adimpression" && \
-        git status && \
-        git add --all && \
-        git status && \
-        git commit -a -m "Generated proto from commit ${COMMIT_SHA}" && \
+        git add -A && git commit -m "Generated proto from commit ${COMMIT_SHA}" && \
         git push origin master
     volumes:
       - name: 'ssh'
