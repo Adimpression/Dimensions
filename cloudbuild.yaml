@@ -32,7 +32,7 @@ steps:
         path: /root/.ssh
     id: 'known_hosts'
   - name: gcr.io/cloud-builders/git
-    args: ['clone', 'https://github.com/Adimpression/Dimensions.git']
+    args: ['clone', '--recurse-submodules', 'https://github.com/Adimpression/Dimensions.git']
     id: 'repo-Dimensions'
   - name: gcr.io/cloud-builders/git
     args: ['clone', 'https://github.com/Adimpression/Scarcity.git']
