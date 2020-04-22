@@ -85,7 +85,7 @@ steps:
         cd proto && \
         git config --global user.email "talktome@adimpression.mobi" && \
         git config --global user.name "Adimpression" && \
-        git add * && \
+        git add --all && \
         git commit -m "Generated proto from commit ${COMMIT_SHA}" && \
         git push origin master
     volumes:
