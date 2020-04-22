@@ -40,6 +40,17 @@ steps:
       - 'id_rsa'
       - 'known_hosts'
     id: 'repo-Dimensions'
+  - name: 'gcr.io/cloud-builders/git'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        cd Dimensions && \
+        git submodule init && \
+        git submodule update
+    volumes:
+      - name: 'ssh'
+        path: /root/.ssh
   - name: gcr.io/cloud-builders/git
     args: ['clone', 'https://github.com/Adimpression/Scarcity.git']
     id: 'repo-Scarcity'
