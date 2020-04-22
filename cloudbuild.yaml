@@ -96,7 +96,7 @@ steps:
         git status && \
         git add --all && \
         git status && \
-        git commit -m "Generated proto from commit ${COMMIT_SHA}" && \
+        git commit -a -m "Generated proto from commit ${COMMIT_SHA}" && \
         git push origin master
     volumes:
       - name: 'ssh'
