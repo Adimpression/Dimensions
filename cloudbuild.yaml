@@ -68,16 +68,16 @@ steps:
   - name: maven:3.6.0-jdk-11
     entrypoint: 'mvn'
     args: ['-Darguments', '-Dmaven.javadoc.skip=true', '-DskipTests=true','-f','Scarcity/pom.xml', 'release:clean', 'release:prepare', 'release:perform']
+    volumes:
+      - name: 'ssh'
+        path: /root/.ssh
+    id: 'mvn'
     waitFor:
       - 'id_rsa'
       - 'known_hosts'
       - 'repo-Scarcity'
       - 'repo-Dimensions'
       - 'repo-proto'
-    id: 'mvn'
-    volumes:
-      - name: 'ssh'
-        path: /root/.ssh
   - name: 'gcr.io/cloud-builders/git'
     entrypoint: 'bash'
     args:
