@@ -69,10 +69,15 @@ steps:
     entrypoint: 'mvn'
     args: ['-Darguments', '-Dmaven.javadoc.skip=true', '-DskipTests=true','-f','Scarcity/pom.xml', 'release:clean', 'release:prepare', 'release:perform']
     waitFor:
+      - 'id_rsa'
+      - 'known_hosts'
       - 'repo-Scarcity'
       - 'repo-Dimensions'
       - 'repo-proto'
     id: 'mvn'
+    volumes:
+      - name: 'ssh'
+        path: /root/.ssh
   - name: 'gcr.io/cloud-builders/git'
     entrypoint: 'bash'
     args:
