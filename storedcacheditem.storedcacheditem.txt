@@ -1,1 +1,3 @@
 Is Stored Cached Item:
+  - storedcacheditem.input / Not Input
+  - storedcacheditem.output / Is Output

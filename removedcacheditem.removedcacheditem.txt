@@ -1,1 +1,3 @@
 Is Removed Cached Item:
+  - removedcacheditem.input / Not Input
+  - removedcacheditem.output / Is Output
