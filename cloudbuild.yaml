@@ -50,9 +50,12 @@ steps:
         cd Dimensions && \
         git submodule init && \
         git submodule update
+    id: 'submodules_init_repo-Dimensions'
     volumes:
       - name: 'ssh'
         path: /root/.ssh
+    waitFor:
+      - 'repo-Dimensions'
   - name: gcr.io/cloud-builders/git
     args: ['clone', 'https://github.com/Adimpression/Scarcity.git']
     id: 'repo-Scarcity'
@@ -77,6 +80,7 @@ steps:
       - 'known_hosts'
       - 'repo-Scarcity'
       - 'repo-Dimensions'
+      - 'submodules_init_repo-Dimensions'
       - 'repo-proto'
   - name: 'gcr.io/cloud-builders/git'
     entrypoint: 'bash'
