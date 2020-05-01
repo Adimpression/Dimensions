@@ -1,0 +1,4 @@
+Is Input:
+  - id.id / Is Id
+  - Is Item Bytes
+  - Is Use Lock Boolean

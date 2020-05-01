@@ -1,0 +1,3 @@
+Is Retrieve Cached Item:
+  - id.id / Is Id
+  - Is Use Lock Boolean
