@@ -27,6 +27,8 @@ steps:
         IdentityFile /root/.ssh/id_rsa
         EOF
         mv known_hosts /root/.ssh/known_hosts
+        git config --global user.email "talktome@adimpression.mobi"
+        git config --global user.name "Adimpression"
     volumes:
       - name: 'ssh'
         path: /root/.ssh
@@ -90,8 +92,6 @@ steps:
       - '-c'
       - |
         cd ./proto && \
-        git config --global user.email "talktome@adimpression.mobi" && \
-        git config --global user.name "Adimpression" && \
         git add -A && git commit -a -m "Generated proto from commit ${COMMIT_SHA}" && \
         git push origin master
     volumes:
