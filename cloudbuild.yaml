@@ -65,7 +65,7 @@ steps:
     id: 'repo-proto'
   - name: maven:3.6.0-jdk-11-slim
     entrypoint: 'mvn'
-    args: ['-Darguments', '-Dmaven.javadoc.skip=true', '-DskipTests=true','-f','Scarcity/pom.xml', 'clean', 'install']
+    args: ['-Darguments', '-Dmaven.javadoc.skip=true', '-DskipTests=true','-f','Scarcity/pom.xml', 'release:clean', 'release:prepare', 'release:perform']
     waitFor:
       - 'repo-Scarcity'
       - 'repo-Dimensions'
