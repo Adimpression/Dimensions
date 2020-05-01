@@ -63,7 +63,7 @@ steps:
       - 'id_rsa'
       - 'known_hosts'
     id: 'repo-proto'
-  - name: maven:3.6.0-jdk-11-slim
+  - name: gcr.io/tough-transport-214713/mvn
     entrypoint: 'mvn'
     args: ['-Darguments', '-Dmaven.javadoc.skip=true', '-DskipTests=true','-f','Scarcity/pom.xml', 'release:clean', 'release:prepare', 'release:perform']
     waitFor:
