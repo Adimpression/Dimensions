@@ -1,0 +1,3 @@
+Is Identified Cached Item:
+  - identifiedcacheditem.input / Not Input
+  - identifiedcacheditem.output / Is Output

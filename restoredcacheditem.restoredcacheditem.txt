@@ -1,0 +1,3 @@
+Is Restored Cached Item:
+  - restoredcacheditem.input / Not Input
+  - restoredcacheditem.output / Is Output
