@@ -1,3 +1,6 @@
 [submodule "architecture"]
 	path = architecture
 	url = git@github.com:Adimpression/architecture.git
+[submodule "adimpression"]
+	path = adimpression
+	url = git@github.com:Adimpression/adimpression.git
