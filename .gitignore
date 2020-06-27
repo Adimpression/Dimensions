@@ -1,2 +1,6 @@
 # Strictly editor file exclusions only.
 *.iml
+*.jar
+*.sh
+*.py
+*.java
